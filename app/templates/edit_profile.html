@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Редактирование профиля
+{% endblock %}
+
+{% block content %}
+<h1>Редактирование профиля</h1>
+<form method="POST" action="{{ url_for('edit_profile') }}">
+    {{ form.hidden_tag() }}
+    <p>
+        Имя пользователя:<br>
+        {{ form.username(class_="form-control") }}
+    </p>
+    <p>
+        Электронная почта:<br>
+        {{ form.email(class_="form-control") }}
+    </p>
+    <p>
+        Пароль:<br>
+        {{ form.password(class_="form-control") }}
+    </p>
+    <p>{{ form.submit(class_="btn btn-primary") }}</p>
+</form>
+{% endblock %}

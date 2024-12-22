@@ -3,7 +3,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
-from flask_login import current_user
 from app.models import User
 
 class RegistrationForm(FlaskForm): # создаем форму регистрации
@@ -48,6 +47,3 @@ class EditProfileForm(FlaskForm):
             user = User.query.filter_by(email=email.data).first()
             if user:
                 raise ValidationError('Такой адрес электронной почты уже используется.')
-
-
-
